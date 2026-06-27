@@ -1,0 +1,284 @@
+:root {
+  --black:   #000000;
+  --cyan:    #55FFFF;
+  --magenta: #FF55FF;
+  --white:   #FFFFFF;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2.5rem;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(6px);
+}
+
+nav .logo {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--magenta);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+nav ul a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+nav ul a:hover { color: var(--cyan); }
+
+.lang-btn {
+  background: none;
+  border: 1px solid #444;
+  color: #666;
+  font-family: inherit;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.lang-btn:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.screenshots-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #444;
+  margin: 3rem 0 1rem;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 2.5rem;
+}
+
+.hero-text h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: bold;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.hero-text p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--cyan);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero-cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.6rem;
+  border: 2px solid var(--magenta);
+  color: var(--magenta);
+  font-family: inherit;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.hero-cta:hover {
+  background: var(--magenta);
+  color: var(--black);
+}
+
+/* ── PAGE SECTIONS ── */
+.page-section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 6rem 2rem 4rem;
+}
+
+.page-section h2 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--magenta);
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid #222;
+  padding-bottom: 0.8rem;
+}
+
+/* ── GAME PAGE ── */
+.game-gif {
+  width: 100%;
+  max-width: 512px;
+  display: block;
+  margin: 0 auto 2.5rem;
+  image-rendering: pixelated;
+  border: 2px solid #222;
+}
+
+.game-screenshots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.75rem;
+  margin: 2.5rem 0;
+}
+
+.game-screenshots img {
+  width: 100%;
+  display: block;
+  image-rendering: pixelated;
+  border: 1px solid #222;
+  transition: border-color 0.2s;
+}
+
+.game-screenshots img:hover { border-color: var(--cyan); }
+
+.game-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.buy-btn {
+  display: inline-block;
+  padding: 0.9rem 2.2rem;
+  background: var(--magenta);
+  color: var(--black);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: bold;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.buy-btn:hover {
+  background: var(--cyan);
+  color: var(--black);
+}
+
+/* ── MUSIC PAGE ── */
+.music-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.music-links a {
+  padding: 0.6rem 1.4rem;
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  font-family: inherit;
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.music-links a:hover {
+  background: var(--cyan);
+  color: var(--black);
+}
+
+/* ── SHOWS PAGE ── */
+.shows-list {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.shows-list li {
+  display: grid;
+  grid-template-columns: 6rem 1fr auto;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid #1a1a1a;
+  font-size: 0.9rem;
+}
+
+.shows-list .date { color: var(--cyan); letter-spacing: 0.08em; }
+.shows-list .venue { color: var(--white); }
+.shows-list .city { color: #666; font-size: 0.8rem; }
+
+/* ── FOOTER ── */
+footer {
+  padding: 3rem 2.5rem;
+  border-top: 1px solid #111;
+  text-align: center;
+  font-size: 0.78rem;
+  color: #444;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+footer a { color: #555; text-decoration: none; }
+footer a:hover { color: var(--magenta); }
