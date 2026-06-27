@@ -11,7 +11,7 @@ const translations = {
     'game.title':      'Api The Cat',
     'game.desc1':      'Api The Cat es un juego de plataformas original para Nintendo Entertainment System (NES), publicado en cartucho físico por Los Pat Moritas. Seguís a Api por una ciudad nocturna llena de niveles inspirados en sonidos urbanos — desde pasillos de arcade hasta junglas suburbanas.',
     'game.desc2':      'Cartucho fabricado a mano · Compatible con NES y Famicom · Incluye 8 temas originales',
-    'game.buy':        'Comprar en eBay',
+    'game.buy':        'Comprar en Etsy',
     'game.cartridge':  'El cartucho',
     'game.screenshots':'Capturas de pantalla',
 
@@ -38,7 +38,7 @@ const translations = {
     'game.title':      'Api The Cat',
     'game.desc1':      'Api The Cat is an original platformer for the Nintendo Entertainment System (NES), released on physical cartridge by Los Pat Moritas. You follow Api through a nocturnal city full of levels inspired by urban sounds — from arcade hallways to suburban jungles.',
     'game.desc2':      'Handmade cartridge · Compatible with NES and Famicom · Includes 8 original tracks',
-    'game.buy':        'Buy on eBay',
+    'game.buy':        'Buy on Etsy',
     'game.cartridge':  'The cartridge',
     'game.screenshots':'Screenshots',
 
