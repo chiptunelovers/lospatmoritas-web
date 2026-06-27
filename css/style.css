@@ -277,7 +277,8 @@ nav ul a:hover { color: var(--cyan); }
 }
 
 .shows-list .date { color: var(--cyan); letter-spacing: 0.08em; }
-.shows-list .venue { color: var(--white); }
+.shows-list .venue { color: var(--white); text-decoration: none; }
+.shows-list .venue:hover { color: var(--cyan); }
 .shows-list .city { color: #666; font-size: 0.8rem; }
 
 /* ── FOOTER ── */
