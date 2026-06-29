@@ -137,21 +137,32 @@ nav ul a:hover { color: var(--cyan); }
 
 .hero-cta {
   display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.7rem 1.6rem;
+  margin-top: 2rem;
+  padding: 1rem 2.4rem;
+  background: var(--magenta);
   border: 2px solid var(--magenta);
-  color: var(--magenta);
+  color: var(--black);
   font-family: inherit;
-  font-size: 0.85rem;
-  letter-spacing: 0.14em;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  animation: cta-pulse 2.4s ease-in-out infinite;
 }
 
 .hero-cta:hover {
-  background: var(--magenta);
+  background: var(--cyan);
+  border-color: var(--cyan);
   color: var(--black);
+  transform: scale(1.05);
+  animation: none;
+}
+
+@keyframes cta-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 85, 255, 0.5); }
+  50%       { box-shadow: 0 0 0 10px rgba(255, 85, 255, 0); }
 }
 
 /* ── PAGE SECTIONS ── */
