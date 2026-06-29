@@ -145,9 +145,9 @@ nav ul a:hover { color: var(--cyan); }
   background: var(--magenta);
   border: 2px solid var(--magenta);
   color: var(--black);
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: bold;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.4rem;
+  font-weight: 900;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   text-decoration: none;
