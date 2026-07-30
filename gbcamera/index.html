@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fotos — Los Pat Moritas</title>
+  <link rel="stylesheet" href="../css/style.css?v=2">
+  <style>
+    .gb-label { font-size:.72rem; color:#333; letter-spacing:.14em;
+                 text-transform:uppercase; margin-bottom:.5rem; }
+    .albums { display:grid;
+               grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+               gap:1.5rem; margin-top:2rem; }
+    .album-card { display:block; text-decoration:none;
+                   border:1px solid #1a1a1a; transition:border-color .2s; }
+    .album-card:hover { border-color:var(--cyan); }
+    .album-card img { width:100%; aspect-ratio:128/112; object-fit:cover;
+                       display:block; image-rendering:pixelated; }
+    .album-info { padding:.8rem 1rem; border-top:1px solid #111; }
+    .album-date { font-size:.72rem; color:var(--cyan); letter-spacing:.14em;
+                   text-transform:uppercase; margin-bottom:.3rem; }
+    .album-title { font-size:.9rem; color:var(--white); letter-spacing:.05em; }
+    .album-count { font-size:.72rem; color:#444; margin-top:.3rem;
+                    letter-spacing:.1em; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="../index.html">Los Pat Moritas</a>
+    <ul>
+      <li><a href="../juego.html">Juego</a></li>
+      <li><a href="../musica.html">Música</a></li>
+      <li><a href="../shows.html">Shows</a></li>
+      <li><a href="../gbcamera/index.html">Fotos</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-section">
+    <p class="gb-label">Game Boy Camera</p>
+    <h2>Fotos</h2>
+    <div class="albums">
+      <a class="album-card" href="260716-emf-camp/index.html">
+        <img src="260716-emf-camp/IMG_PC01.png" alt="EMF Camp">
+        <div class="album-info">
+          <p class="album-date">16 de julio de 2026</p>
+          <p class="album-title">EMF Camp</p>
+          <p class="album-count">24 fotos</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Los Pat Moritas &nbsp;·&nbsp; <a href="../contacto.html">Contacto</a></p>
+  </footer>
+
+</body>
+</html>
