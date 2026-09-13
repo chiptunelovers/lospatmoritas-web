@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PlanetWax — Los Pat Moritas</title>
+  <link rel="stylesheet" href="../../css/style.css?v=2">
+  <style>
+    .gb-meta { font-size:.78rem; color:var(--cyan); letter-spacing:.14em;
+                text-transform:uppercase; margin-bottom:.5rem; }
+    .back-link { display:inline-block; font-size:.78rem; color:#555;
+                  letter-spacing:.12em; text-transform:uppercase;
+                  text-decoration:none; margin-bottom:2rem; }
+    .back-link:hover { color:var(--cyan); }
+    .gb-grid { display:grid;
+                grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+                gap:4px; margin-top:2rem; }
+    .gb-grid img { width:100%; aspect-ratio:128/112; object-fit:cover;
+                    display:block; cursor:pointer;
+                    image-rendering:pixelated; border:1px solid #111;
+                    transition:border-color .2s; }
+    .gb-grid img:hover { border-color:var(--cyan); }
+    #lightbox { display:none; position:fixed; inset:0;
+                 background:rgba(0,0,0,.94); z-index:1000;
+                 justify-content:center; align-items:center; }
+    #lightbox.active { display:flex; }
+    #lb-img { max-width:90vw; max-height:85vh;
+               image-rendering:pixelated; border:1px solid #333; }
+    .lb-btn { position:absolute; top:50%; transform:translateY(-50%);
+               background:none; border:1px solid #333; color:#fff;
+               font-size:1.4rem; padding:.9rem 1.2rem; cursor:pointer;
+               transition:border-color .2s,color .2s; font-family:inherit; }
+    .lb-btn:hover { border-color:var(--cyan); color:var(--cyan); }
+    #lb-prev { left:1.5rem; }
+    #lb-next { right:1.5rem; }
+    #lb-close { position:absolute; top:1rem; right:1.5rem; background:none;
+                 border:none; color:#555; font-size:1.4rem; cursor:pointer;
+                 transition:color .2s; }
+    #lb-close:hover { color:var(--magenta); }
+    #lb-counter { position:absolute; bottom:1.2rem; left:50%;
+                   transform:translateX(-50%); font-family:inherit;
+                   font-size:.75rem; color:#444; letter-spacing:.1em; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="../../index.html">Los Pat Moritas</a>
+    <ul>
+      <li><a href="../../juego.html">Juego</a></li>
+      <li><a href="../../musica.html">Música</a></li>
+      <li><a href="../../shows.html">Shows</a></li>
+      <li><a href="../../gbcamera/index.html">Fotos</a></li>
+      <li><a href="../../contacto.html">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-section">
+    <a class="back-link" href="../index.html">← Fotos</a>
+    <p class="gb-meta">13 de septiembre de 2026 · Game Boy Camera</p>
+    <h2>PlanetWax</h2>
+
+    <div class="gb-grid">
+      <img src="IMG_PC02.png" alt="foto 1" loading="lazy">
+      <img src="IMG_PC04.png" alt="foto 2" loading="lazy">
+      <img src="IMG_PC05.png" alt="foto 3" loading="lazy">
+      <img src="IMG_PC07.png" alt="foto 4" loading="lazy">
+      <img src="IMG_PC12.png" alt="foto 5" loading="lazy">
+      <img src="IMG_PC13.png" alt="foto 6" loading="lazy">
+      <img src="IMG_PC14.png" alt="foto 7" loading="lazy">
+      <img src="IMG_PC15.png" alt="foto 8" loading="lazy">
+      <img src="IMG_PC17.png" alt="foto 9" loading="lazy">
+      <img src="IMG_PC18.png" alt="foto 10" loading="lazy">
+      <img src="IMG_PC19.png" alt="foto 11" loading="lazy">
+      <img src="IMG_PC22.png" alt="foto 12" loading="lazy">
+    </div>
+  </section>
+
+  <div id="lightbox">
+    <button id="lb-close">✕</button>
+    <button class="lb-btn" id="lb-prev">←</button>
+    <img id="lb-img" src="" alt="">
+    <button class="lb-btn" id="lb-next">→</button>
+    <span id="lb-counter"></span>
+  </div>
+
+  <footer>
+    <p>© 2026 Los Pat Moritas &nbsp;·&nbsp; <a href="../../contacto.html">Contacto</a></p>
+  </footer>
+
+  <script>
+    const imgs = Array.from(document.querySelectorAll('.gb-grid img'));
+    const lb   = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbCtr = document.getElementById('lb-counter');
+    let cur = 0;
+
+    function show(i) {
+      cur = (i + imgs.length) % imgs.length;
+      lbImg.src = imgs[cur].src;
+      lbCtr.textContent = (cur + 1) + ' / ' + imgs.length;
+    }
+
+    imgs.forEach((img, i) => img.addEventListener('click', () => {
+      lb.classList.add('active');
+      show(i);
+    }));
+
+    document.getElementById('lb-prev').addEventListener('click',  () => show(cur - 1));
+    document.getElementById('lb-next').addEventListener('click',  () => show(cur + 1));
+    document.getElementById('lb-close').addEventListener('click', () => lb.classList.remove('active'));
+    lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('active'); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('active')) return;
+      if (e.key === 'Escape')      lb.classList.remove('active');
+      if (e.key === 'ArrowLeft')   show(cur - 1);
+      if (e.key === 'ArrowRight')  show(cur + 1);
+    });
+  </script>
+</body>
+</html>
