@@ -2,7 +2,7 @@ const translations = {
   es: {
     'nav.game':        'Juego',
     'nav.music':       'Música',
-    'nav.shows':       'Shows',
+    'nav.gbcamera':    'GB Camera',
     'nav.contact':     'Contacto',
 
     'hero.subtitle':   'Juego original para NES · Cartucho físico',
@@ -30,7 +30,7 @@ const translations = {
   en: {
     'nav.game':        'Game',
     'nav.music':       'Music',
-    'nav.shows':       'Shows',
+    'nav.gbcamera':    'GB Camera',
     'nav.contact':     'Contact',
 
     'hero.subtitle':   'Original NES game · Physical cartridge',
