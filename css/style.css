@@ -250,6 +250,18 @@ nav ul a:hover { color: var(--cyan); }
   color: var(--black);
 }
 
+.buy-btn--soldout {
+  background: none;
+  border: 1px solid #444;
+  color: #777;
+}
+
+.buy-btn--soldout:hover {
+  background: none;
+  border-color: var(--magenta);
+  color: var(--magenta);
+}
+
 /* ── MUSIC PAGE ── */
 .music-links {
   display: flex;
