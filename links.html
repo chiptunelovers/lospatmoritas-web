@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Links — Los Pat Moritas</title>
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <style>
+    .links-page {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .links-logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--magenta);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-align: center;
+    }
+
+    .links-tagline {
+      font-size: 0.82rem;
+      color: #888;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: -1.2rem;
+    }
+
+    .yt-embed-wrap {
+      width: 100%;
+      aspect-ratio: 16/9;
+    }
+
+    .yt-embed-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 1px solid #222;
+      display: block;
+    }
+
+    .links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      width: 100%;
+    }
+
+    .links-grid a {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1.4rem;
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      font-family: inherit;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .links-grid a:hover {
+      background: var(--cyan);
+      color: var(--black);
+    }
+
+    .links-grid a.magenta {
+      border-color: var(--magenta);
+      color: var(--magenta);
+    }
+
+    .links-grid a.magenta:hover {
+      background: var(--magenta);
+      color: var(--black);
+    }
+
+    .links-back {
+      font-size: 0.75rem;
+      color: #444;
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .links-back:hover { color: #888; }
+  </style>
+</head>
+<body>
+
+  <div class="links-page">
+
+    <div>
+      <p class="links-logo">Los Pat Moritas</p>
+      <p class="links-tagline">Cumbia chiptune</p>
+    </div>
+
+    <div class="yt-embed-wrap">
+      <iframe
+        id="yt-player"
+        src=""
+        title="Los Pat Moritas — YouTube"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="links-grid">
+      <a href="https://nakumorita.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>
+      <a href="https://open.spotify.com/artist/2Is9MSVACGwSVnPEmUxqer" target="_blank" rel="noopener">Spotify</a>
+      <a href="https://music.apple.com/us/artist/los-pat-moritas/1152970094" target="_blank" rel="noopener">Apple Music</a>
+      <a href="https://soundcloud.com/patmoritas" target="_blank" rel="noopener">SoundCloud</a>
+      <a href="https://www.youtube.com/watch?v=zd194ZJDv5o&list=PLIrZHScjLze4" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.instagram.com/lospatmoritas/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://mastodonapp.uk/@nakumorita" target="_blank" rel="noopener">Mastodon</a>
+      <a href="index.html" class="magenta">lospatmoritas.com</a>
+    </div>
+
+    <a class="links-back" href="index.html">← lospatmoritas.com</a>
+
+  </div>
+
+  <script>
+    // Autoplay a random video from the playlist
+    const playlistId = 'PLIrZHScjLze4';
+    const firstVideoId = 'zd194ZJDv5o';
+    const playlistSize = 15; // upper bound; YouTube clips to actual size
+    const idx = Math.floor(Math.random() * playlistSize);
+    const src = `https://www.youtube.com/embed/${firstVideoId}?list=${playlistId}&index=${idx}&autoplay=1&rel=0`;
+    document.getElementById('yt-player').src = src;
+  </script>
+
+</body>
+</html>
