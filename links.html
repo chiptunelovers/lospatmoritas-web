@@ -3,140 +3,273 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Links — Los Pat Moritas</title>
+  <title>Los Pat Moritas · Links</title>
+  <meta name="description" content="Latin Chiptune y Api The Cat, juego original para NES.">
+  <meta name="theme-color" content="#0a0a0f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=2">
   <style>
-    .links-page {
-      max-width: 560px;
+    body.lt {
+      min-height: 100vh;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      background:
+        radial-gradient(60% 40% at 15% 0%, rgba(255, 85, 255, 0.22), transparent 70%),
+        radial-gradient(60% 40% at 85% 30%, rgba(85, 255, 255, 0.14), transparent 70%),
+        #0a0a0f;
+      background-attachment: fixed;
+    }
+
+    .lt-lang {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10;
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+      background: rgba(10, 10, 15, 0.6);
+      backdrop-filter: blur(8px);
+      color: #aaa;
+      border-color: #333;
+    }
+
+    .lt-wrap {
+      max-width: 460px;
       margin: 0 auto;
-      padding: 5rem 2rem 4rem;
+      padding: 1.5rem 1rem 2rem;
+    }
+
+
+    .lt-title {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-family: 'Fredoka One', cursive;
+      font-weight: normal;
+      font-size: 2.1rem;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      background: linear-gradient(90deg, var(--magenta), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lt-tagline {
+      margin-top: 0.3rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #9a9aa8;
+    }
+
+    .lt-heading {
+      margin: 2rem 0 0.7rem 0.3rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6c6c7a;
+    }
+
+    .lt-list {
       display: flex;
       flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .lt-link {
+      display: flex;
       align-items: center;
-      gap: 2rem;
-    }
-
-    .links-logo {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: var(--magenta);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      text-align: center;
-    }
-
-    .links-tagline {
-      font-size: 0.82rem;
-      color: #888;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-align: center;
-      margin-top: -1.2rem;
-    }
-
-    .yt-embed-wrap {
-      width: 100%;
-      aspect-ratio: 16/9;
-    }
-
-    .yt-embed-wrap iframe {
-      width: 100%;
-      height: 100%;
-      border: 1px solid #222;
-      display: block;
-    }
-
-    .links-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      width: 100%;
-    }
-
-    .links-grid a {
-      display: block;
-      width: 100%;
-      padding: 0.75rem 1.4rem;
-      border: 1px solid var(--cyan);
-      color: var(--cyan);
-      font-family: inherit;
-      font-size: 0.82rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      gap: 0.9rem;
+      padding: 0.95rem 1.1rem;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      font-size: 1rem;
+      font-weight: 500;
       text-decoration: none;
-      text-align: center;
-      transition: background 0.2s, color 0.2s;
+      overflow-wrap: anywhere;
+      transition: transform 0.15s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
     }
 
-    .links-grid a:hover {
+    .lt-link:hover,
+    .lt-link:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--cyan);
+      background: rgba(85, 255, 255, 0.08);
+      box-shadow: 0 8px 24px -12px rgba(85, 255, 255, 0.6);
+      outline: none;
+    }
+
+    .lt-link:active { transform: scale(0.98); }
+
+    .lt-link::after {
+      content: '→';
+      margin-left: auto;
+      color: #555;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .lt-link:hover::after { color: var(--cyan); transform: translateX(3px); }
+
+    .lt-icon {
+      flex: none;
+      width: 22px;
+      height: 22px;
       background: var(--cyan);
-      color: var(--black);
+      -webkit-mask: var(--i) center / contain no-repeat;
+      mask: var(--i) center / contain no-repeat;
     }
 
-    .links-grid a.magenta {
-      border-color: var(--magenta);
-      color: var(--magenta);
+    /* Api The Cat card */
+    .lt-game {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.8rem;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(255, 85, 255, 0.25), rgba(85, 255, 255, 0.12));
+      border: 1px solid rgba(255, 85, 255, 0.5);
+      color: var(--white);
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.2s;
     }
 
-    .links-grid a.magenta:hover {
+    .lt-game:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -12px rgba(255, 85, 255, 0.7);
+    }
+
+    .lt-game img {
+      flex: none;
+      width: 76px;
+      height: 76px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .lt-game strong {
+      display: block;
+      font-family: 'Fredoka One', cursive;
+      font-weight: normal;
+      font-size: 1.25rem;
+      letter-spacing: 0.02em;
+    }
+
+    .lt-game span {
+      display: block;
+      font-size: 0.85rem;
+      color: #c9c9d6;
+    }
+
+    .lt-game .lt-cta {
+      margin-top: 0.4rem;
+      display: inline-block;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
       background: var(--magenta);
       color: var(--black);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    .links-back {
-      font-size: 0.75rem;
-      color: #444;
-      text-decoration: none;
+    .lt-soldout { color: #8a8a96; }
+    .lt-soldout .lt-icon { background: #6c6c7a; }
+
+    .lt-badge {
+      margin-left: auto;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--magenta);
+      color: var(--magenta);
+      font-size: 0.7rem;
+      font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      transition: color 0.2s;
     }
 
-    .links-back:hover { color: #888; }
+    .lt-soldout::after { margin-left: 0.6rem; }
+
+    body.lt footer {
+      border-top: none;
+      padding: 1.5rem 1rem 2.5rem;
+      color: #444;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+    }
   </style>
 </head>
-<body>
+<body class="lt">
 
-  <div class="links-page">
+  <button id="lang-toggle" class="lang-btn lt-lang">EN</button>
 
-    <div>
-      <p class="links-logo">Los Pat Moritas</p>
-      <p class="links-tagline">Cumbia chiptune</p>
+  <main class="lt-wrap">
+
+    <h1 class="lt-title">Los Pat Moritas</h1>
+    <p class="lt-tagline" data-i18n="links.tagline">Latin Chiptune · Juegos para NES</p>
+
+    <h2 class="lt-heading" data-i18n="nav.music">Música</h2>
+    <div class="lt-list">
+      <a class="lt-link" href="https://nakumorita.bandcamp.com" target="_blank" rel="noopener"><i class="lt-icon" style="--i:url(assets/icons/bandcamp.svg)"></i>Bandcamp</a>
+      <a class="lt-link" href="https://open.spotify.com/artist/2Is9MSVACGwSVnPEmUxqer" target="_blank" rel="noopener"><i class="lt-icon" style="--i:url(assets/icons/poop.svg)"></i>Spotify</a>
+      <a class="lt-link" href="https://music.apple.com/us/artist/los-pat-moritas/1152970094" target="_blank" rel="noopener"><i class="lt-icon" style="--i:url(assets/icons/applemusic.svg)"></i>Apple Music</a>
+      <a class="lt-link" href="https://soundcloud.com/patmoritas" target="_blank" rel="noopener"><i class="lt-icon" style="--i:url(assets/icons/soundcloud.svg)"></i>SoundCloud</a>
+      <a class="lt-link" id="yt-link" href="https://www.youtube.com/watch?v=zd194ZJDv5o&list=PLIrZHScjLze4" target="_blank" rel="noopener"><i class="lt-icon" style="--i:url(assets/icons/youtube.svg)"></i>YouTube</a>
     </div>
 
-    <div class="yt-embed-wrap">
-      <iframe
-        id="yt-player"
-        src=""
-        title="Los Pat Moritas — YouTube"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+    <h2 class="lt-heading" data-i18n="links.social">Redes</h2>
+    <div class="lt-list">
+      <a class="lt-link" href="https://mastodonapp.uk/@nakumorita" target="_blank" rel="noopener"><i class="lt-icon" style="--i:url(assets/icons/mastodon.svg)"></i>Mastodon</a>
+      <a class="lt-link" href="https://www.instagram.com/lospatmoritas/" target="_blank" rel="noopener"><i class="lt-icon" style="--i:url(assets/icons/instagram.svg)"></i>Instagram</a>
     </div>
 
-    <div class="links-grid">
-      <a href="https://nakumorita.bandcamp.com" target="_blank" rel="noopener">Bandcamp</a>
-      <a href="https://open.spotify.com/artist/2Is9MSVACGwSVnPEmUxqer" target="_blank" rel="noopener">Spotify</a>
-      <a href="https://music.apple.com/us/artist/los-pat-moritas/1152970094" target="_blank" rel="noopener">Apple Music</a>
-      <a href="https://soundcloud.com/patmoritas" target="_blank" rel="noopener">SoundCloud</a>
-      <a href="https://www.youtube.com/watch?v=zd194ZJDv5o&list=PLIrZHScjLze4" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://www.instagram.com/lospatmoritas/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://mastodonapp.uk/@nakumorita" target="_blank" rel="noopener">Mastodon</a>
-      <a href="index.html" class="magenta">lospatmoritas.com</a>
+    <h2 class="lt-heading" data-i18n="links.more">Más</h2>
+    <div class="lt-list">
+      <a class="lt-link" href="gbcamera/index.html"><i class="lt-icon" style="--i:url(assets/icons/camera.svg)"></i>GB Camera</a>
+      <a class="lt-link" href="mailto:patmoritas@gmail.com"><i class="lt-icon" style="--i:url(assets/icons/gmail.svg)"></i>patmoritas@gmail.com</a>
+      <a class="lt-link" href="index.html"><i class="lt-icon" style="--i:url(assets/icons/globe.svg)"></i>lospatmoritas.com</a>
     </div>
 
-    <a class="links-back" href="index.html">← lospatmoritas.com</a>
+    <h2 class="lt-heading" data-i18n="links.game">Juego</h2>
+    <div class="lt-list">
+      <a class="lt-game" href="juego.html">
+        <img src="assets/cart-thumb.jpg" alt="">
+        <div>
+          <strong>Api The Cat</strong>
+          <span data-i18n="hero.subtitle">Juego original para NES · Cartucho físico</span>
+          <em class="lt-cta" data-i18n="hero.cta">Ver el juego</em>
+        </div>
+      </a>
+      <a class="lt-link lt-soldout" href="https://ebay.io/m/71YJVq" target="_blank" rel="noopener"><i class="lt-icon" style="--i:url(assets/icons/ebay.svg)"></i><span>eBay</span><b class="lt-badge" data-i18n="links.soldout">Agotado</b></a>
+    </div>
+  </main>
 
-  </div>
+  <footer>
+    <p><span data-i18n="footer.copy">© 2026 Los Pat Moritas</span></p>
+  </footer>
 
+  <script src="js/lang.js"></script>
   <script>
-    const playlistId = 'PLIrZHScjLze4';
-    const playlistSize = 15;
-    const idx = Math.floor(Math.random() * playlistSize);
-    const src = `https://www.youtube.com/embed/videoseries?list=${playlistId}&index=${idx}&autoplay=1&rel=0`;
-    document.getElementById('yt-player').src = src;
+    const idx = Math.floor(Math.random() * 15) + 1;
+    document.getElementById('yt-link').href =
+      `https://www.youtube.com/watch?v=zd194ZJDv5o&list=PLIrZHScjLze4&index=${idx}`;
   </script>
-
+  <script>
+    Object.assign(translations.es, {
+      'links.tagline': 'Latin Chiptune · Juegos para NES',
+      'links.social':  'Redes',
+      'links.more':    'Más',
+      'links.game':    'Juego',
+      'links.soldout': 'Agotado',
+    });
+    Object.assign(translations.en, {
+      'links.tagline': 'Latin Chiptune · NES games',
+      'links.social':  'Social',
+      'links.more':    'More',
+      'links.game':    'Game',
+      'links.soldout': 'Sold out',
+    });
+  </script>
 </body>
 </html>
