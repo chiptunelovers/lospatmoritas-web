@@ -131,12 +131,10 @@
   </div>
 
   <script>
-    // Autoplay a random video from the playlist
     const playlistId = 'PLIrZHScjLze4';
-    const firstVideoId = 'zd194ZJDv5o';
-    const playlistSize = 15; // upper bound; YouTube clips to actual size
+    const playlistSize = 15;
     const idx = Math.floor(Math.random() * playlistSize);
-    const src = `https://www.youtube.com/embed/${firstVideoId}?list=${playlistId}&index=${idx}&autoplay=1&rel=0`;
+    const src = `https://www.youtube.com/embed/videoseries?list=${playlistId}&index=${idx}&autoplay=1&rel=0`;
     document.getElementById('yt-player').src = src;
   </script>
 
