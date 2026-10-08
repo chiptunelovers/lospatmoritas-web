@@ -1,5 +1,5 @@
 :root {
-  --black:   #000000;
+  --black:   #0a0a0f;
   --cyan:    #55FFFF;
   --magenta: #FF55FF;
   --white:   #FFFFFF;
@@ -12,7 +12,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--black);
   color: var(--white);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
 }
@@ -27,45 +27,51 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 2.5rem;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(6px);
+  padding: 1.1rem 2.5rem;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 nav .logo {
-  font-size: 1rem;
-  font-weight: bold;
-  color: var(--magenta);
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.3rem;
+  font-weight: normal;
+  background: linear-gradient(90deg, var(--magenta), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   text-decoration: none;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 nav ul {
   list-style: none;
   display: flex;
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 nav ul a {
-  color: var(--white);
+  color: #aaa;
   text-decoration: none;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
   transition: color 0.2s;
 }
 
 nav ul a:hover { color: var(--cyan); }
 
 .lang-btn {
-  background: none;
-  border: 1px solid #444;
-  color: #666;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: #888;
   font-family: inherit;
   font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  padding: 0.25rem 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.75rem;
   cursor: pointer;
   transition: border-color 0.2s, color 0.2s;
 }
@@ -73,14 +79,6 @@ nav ul a:hover { color: var(--cyan); }
 .lang-btn:hover {
   border-color: var(--cyan);
   color: var(--cyan);
-}
-
-.screenshots-title {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: #444;
-  margin: 3rem 0 1rem;
 }
 
 /* ── HERO ── */
@@ -109,7 +107,12 @@ nav ul a:hover { color: var(--cyan); }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 15, 0.92) 0%,
+    rgba(10, 10, 15, 0.4) 50%,
+    rgba(10, 10, 15, 0.1) 100%
+  );
 }
 
 .hero-text {
@@ -120,53 +123,53 @@ nav ul a:hover { color: var(--cyan); }
 
 .hero-text h1 {
   font-family: 'Fredoka One', cursive;
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: bold;
-  color: var(--white);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  line-height: 1.1;
-  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000, 0 -3px 0 #000, 0 3px 0 #000, -3px 0 0 #000, 3px 0 0 #000;
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: normal;
+  background: linear-gradient(90deg, var(--magenta) 20%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  filter: drop-shadow(0 0 32px rgba(255, 85, 255, 0.3));
 }
 
 .hero-text p {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: var(--cyan);
-  letter-spacing: 0.18em;
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #9a9aa8;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .hero-cta {
   display: inline-block;
   margin-top: 2rem;
-  padding: 1rem 2.4rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 999px;
   background: var(--magenta);
-  border: 2px solid var(--magenta);
   color: var(--black);
   font-family: 'Fredoka One', cursive;
-  font-size: 1.4rem;
-  font-weight: 900;
-  letter-spacing: 0.18em;
+  font-size: 1.2rem;
+  font-weight: normal;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: background 0.2s, color 0.2s, transform 0.2s;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
   animation: cta-pulse 2.4s ease-in-out infinite;
-  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
 .hero-cta:hover {
   background: var(--cyan);
-  border-color: var(--cyan);
-  color: var(--black);
-  transform: scale(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px -8px rgba(85, 255, 255, 0.7);
   animation: none;
 }
 
 @keyframes cta-pulse {
   0%, 100% { box-shadow: 0 0 0 0 rgba(255, 85, 255, 0.5); }
-  50%       { box-shadow: 0 0 0 10px rgba(255, 85, 255, 0); }
+  50%       { box-shadow: 0 0 0 12px rgba(255, 85, 255, 0); }
 }
 
 /* ── PAGE SECTIONS ── */
@@ -177,31 +180,35 @@ nav ul a:hover { color: var(--cyan); }
 }
 
 .page-section h2 {
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--magenta);
-  margin-bottom: 2.5rem;
-  border-bottom: 1px solid #222;
-  padding-bottom: 0.8rem;
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: normal;
+  background: linear-gradient(90deg, var(--magenta), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
 }
 
 /* ── GAME PAGE ── */
-.game-gif {
-  width: 100%;
-  max-width: 512px;
-  display: block;
-  margin: 0 auto 2.5rem;
-  image-rendering: pixelated;
-  border: 2px solid #222;
+.screenshots-title {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #444;
+  margin: 3rem 0 1rem;
+  font-weight: 600;
 }
 
 .game-screenshots {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   grid-auto-rows: 240px;
-  gap: 0.75rem;
-  margin: 2.5rem 0;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .game-screenshots img {
@@ -209,103 +216,152 @@ nav ul a:hover { color: var(--cyan); }
   height: 240px;
   object-fit: cover;
   display: block;
-  border: 1px solid #222;
-  transition: border-color 0.2s;
+  filter: brightness(0.88);
+  transition: transform 0.2s, filter 0.2s;
 }
 
-.game-screenshots img:hover { border-color: var(--cyan); }
+.game-screenshots img:hover {
+  transform: scale(1.04);
+  filter: brightness(1.05);
+  position: relative;
+  z-index: 1;
+}
 
 .game-screenshots--wide {
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   grid-auto-rows: 176px;
 }
 
-.game-screenshots--wide img {
-  height: 176px;
-}
+.game-screenshots--wide img { height: 176px; }
 
 .game-description {
   font-size: 1rem;
   line-height: 1.8;
-  color: #ccc;
-  margin-bottom: 2rem;
+  color: #9a9aa8;
+  margin-bottom: 1.2rem;
 }
 
 .buy-btn {
   display: inline-block;
-  padding: 0.9rem 2.2rem;
+  padding: 0.85rem 2rem;
+  border-radius: 999px;
   background: var(--magenta);
   color: var(--black);
   font-family: inherit;
   font-size: 0.9rem;
-  font-weight: bold;
-  letter-spacing: 0.16em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: background 0.2s, color 0.2s;
+  margin-bottom: 1rem;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
 }
 
 .buy-btn:hover {
   background: var(--cyan);
-  color: var(--black);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -8px rgba(85, 255, 255, 0.6);
 }
 
 /* ── MUSIC PAGE ── */
 .music-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.55rem;
   margin-top: 1.5rem;
 }
 
 .music-links a {
-  padding: 0.6rem 1.4rem;
-  border: 1px solid var(--cyan);
-  color: var(--cyan);
-  font-family: inherit;
-  font-size: 0.82rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  padding: 0.95rem 1.2rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 500;
   text-decoration: none;
-  transition: background 0.2s, color 0.2s;
+  transition: transform 0.15s, border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.music-links a::after {
+  content: '→';
+  margin-left: auto;
+  color: #555;
+  transition: color 0.2s, transform 0.2s;
 }
 
 .music-links a:hover {
-  background: var(--cyan);
-  color: var(--black);
+  transform: translateY(-2px);
+  border-color: var(--cyan);
+  background: rgba(85, 255, 255, 0.08);
+  box-shadow: 0 8px 24px -12px rgba(85, 255, 255, 0.6);
+}
+
+.music-links a:hover::after {
+  color: var(--cyan);
+  transform: translateX(3px);
 }
 
 /* ── SHOWS PAGE ── */
 .shows-list {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   margin-top: 1rem;
 }
 
 .shows-list li {
-  display: grid;
-  grid-template-columns: 6rem 1fr auto;
+  display: flex;
+  align-items: center;
   gap: 1.5rem;
-  align-items: baseline;
-  padding: 1.2rem 0;
-  border-bottom: 1px solid #1a1a1a;
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
   font-size: 0.9rem;
+  transition: border-color 0.2s, background 0.2s;
 }
 
-.shows-list .date { color: var(--cyan); letter-spacing: 0.08em; }
-.shows-list .venue { color: var(--white); text-decoration: none; }
+.shows-list li:hover {
+  border-color: rgba(85, 255, 255, 0.3);
+  background: rgba(85, 255, 255, 0.05);
+}
+
+.shows-list .date {
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 0.06em;
+  min-width: 5rem;
+  font-size: 0.82rem;
+}
+
+.shows-list .venue {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
 .shows-list .venue:hover { color: var(--cyan); }
-.shows-list .city { color: #666; font-size: 0.8rem; }
+
+.shows-list .city {
+  margin-left: auto;
+  color: #555;
+  font-size: 0.8rem;
+}
 
 /* ── FOOTER ── */
 footer {
-  padding: 3rem 2.5rem;
-  border-top: 1px solid #111;
+  padding: 2.5rem 2.5rem;
   text-align: center;
   font-size: 0.78rem;
-  color: #444;
+  color: #333;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-footer a { color: #555; text-decoration: none; }
+footer a { color: #444; text-decoration: none; }
 footer a:hover { color: var(--magenta); }
